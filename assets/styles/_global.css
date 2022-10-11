@@ -1,0 +1,11 @@
+.grid-row,
+.grid-col {
+    display: grid;
+}
+
+.grid-col {
+    grid-auto-flow: column;
+}
+.grid-col {
+    grid-auto-flow: row;
+}

@@ -1,0 +1,12 @@
+.movies-content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.movie{
+    display: grid;
+    grid-template-rows: 45% auto;
+    padding: 5px;
+    width: 200px;
+    height: 250px;
+    background: red;
+}
