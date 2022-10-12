@@ -1,5 +1,6 @@
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+import { MovieContextData } from "../../contexts/MoviesContext.js";
 import Jauge from "./Jauge.js";
 import NoticeItem from "./NoticeItem.js";
 
@@ -10,12 +11,21 @@ var Movie = function Movie(_ref) {
         likes = movie.likes,
         dislikes = movie.dislikes;
 
+    var _MovieContextData = MovieContextData(),
+        movies = _MovieContextData.movies,
+        setMovies = _MovieContextData.setMovies;
+
+    var movieRef = movies.indexOf(movie);
+
     var onClicked = function onClicked() {
-        // delete movie;
+        delete movies[movieRef];
         setMovies(function (movieData) {
-            return [].concat(_toConsumableArray(movieData));
+            return [].concat(_toConsumableArray(movieData.filter(function (movie) {
+                return movie && movie;
+            })));
         });
     };
+
     return React.createElement(
         "article",
         { className: "movie grid" },
@@ -47,9 +57,9 @@ var Movie = function Movie(_ref) {
                     { className: "notice-items grid-col" },
                     React.createElement(NoticeItem, { iconClass: "like", movie: movie, increment: 1 }),
                     React.createElement(
-                        "span",
-                        null,
-                        "X delete"
+                        "button",
+                        { className: "movie-rm", onClick: onClicked },
+                        "supprimer"
                     ),
                     React.createElement(NoticeItem, { iconClass: "dislike", movie: movie, increment: -1 })
                 ),

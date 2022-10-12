@@ -8,12 +8,12 @@ var Movies = function Movies() {
         movies = _MovieContextData.movies;
 
     var categories = CategoriesContextData();
-    console.log("categories", categories);
+
     return React.createElement(
         "section",
         { className: "movies-content grid" },
         movies && movies.map(function (movie, i) {
-            return React.createElement(Movie, { key: i, movie: movie });
+            return movie && React.createElement(Movie, { key: i, movie: movie });
         })
     );
 };

@@ -5,22 +5,25 @@ const getMoviesByCategories = (params = []) => {
             [item[distinct], item])).values()];
         return arrayUniqueByKey
     }
-    for (let element in params) {
-        const category = params[element].category
-        let moviesInCategories = [];
-        let getMovies = [];
-        if (category) {
-            console.log(category, "categories");
-            moviesInCategories = params.filter(movie => movie.category == category);
+    for (let index in params) {
+        let element = params[index]
+        if (element) {
+            // console.log(element,"existe");
+            const category = element.category
+            let moviesInCategories = [];
+            let getMovies = [];
+            if (category) {
+                moviesInCategories = params.filter(movie => movie.category == category);
 
-            getMovies = moviesInCategories.map(movie => {
-                const clone = { ...movie }
-                delete clone.category;
-                return clone;
-            });
-            mytab.push({ category, movies: getMovies });
+                getMovies = moviesInCategories.map(movie => {
+                    const clone = { ...movie }
+                    delete clone.category;
+                    return clone;
+                });
+                mytab.push({ title: category, movies: getMovies });
+            }
         }
     }
-    return uniqueAr(mytab, "category").map((category,i) => {category.id = i+1; return category});
+    return uniqueAr(mytab, "title").map((category, i) => { category.id = i + 1; return category });
 }
 export default getMoviesByCategories;

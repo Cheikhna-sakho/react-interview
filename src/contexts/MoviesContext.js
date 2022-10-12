@@ -1,5 +1,4 @@
-import { movies$ } from "../movies.js";
-import React from 'react-icons'
+import { movies$ } from "../movies.js"
 import getMoviesByCategories from "../utils/MoviesByCategories.js";
 
 
@@ -15,8 +14,8 @@ export const MoviesContextProvider = ({ children }) => {
         movies && setCategories(getMoviesByCategories(movies));
     }, [movies])
     const data = {
-        contextMovies: [movies,setMovies],
-        contextCategories: [categories,setCategories],
+        contextMovies: [movies, setMovies],
+        contextCategories: [categories, setCategories],
     }
     return (
         <MoviesContext.Provider value={{ movies, setMovies, categories, setCategories }}>
@@ -29,7 +28,7 @@ export const MovieContextData = () => {
     return { movies, setMovies };
 }
 export const CategoriesContextData = () => {
-    const { categories } = React.useContext(MoviesContext);
-    return categories;
+    const { categories, setCategories } = React.useContext(MoviesContext);
+    return { categories, setCategories };
 }
 export default MoviesContext;

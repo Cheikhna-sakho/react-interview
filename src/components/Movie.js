@@ -1,12 +1,17 @@
+import { MovieContextData } from "../../contexts/MoviesContext.js";
 import Jauge from "./Jauge.js"
 import NoticeItem from "./NoticeItem.js"
 
 const Movie = ({ movie }) => {
     const { title, category, likes, dislikes } = movie;
+    const { movies, setMovies } = MovieContextData();
+    const movieRef = movies.indexOf(movie);
+
     const onClicked = () => {
-        // delete movie;
-        setMovies(movieData => [...movieData])
+        delete movies[movieRef];
+        setMovies(movieData => [...movieData.filter(movie => movie && movie)])
     }
+
     return (
         <article className="movie grid">
             <div className="movie-cover">
@@ -18,7 +23,7 @@ const Movie = ({ movie }) => {
                 <div className="notice">
                     <div className="notice-items grid-col">
                         <NoticeItem iconClass="like" movie={movie} increment={1} />
-                        <span>X delete</span>
+                        <button className="movie-rm" onClick={onClicked}>supprimer</button>
                         <NoticeItem iconClass="dislike" movie={movie} increment={-1} />
                     </div>
                     <Jauge likes={likes} dislikes={dislikes} />

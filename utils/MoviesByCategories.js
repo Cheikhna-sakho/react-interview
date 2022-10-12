@@ -10,30 +10,30 @@ var getMoviesByCategories = function getMoviesByCategories() {
         })).values()));
         return arrayUniqueByKey;
     };
+    for (var index in params) {
+        var element = params[index];
+        if (element) {
+            (function () {
+                // console.log(element,"existe");
+                var category = element.category;
+                var moviesInCategories = [];
+                var getMovies = [];
+                if (category) {
+                    moviesInCategories = params.filter(function (movie) {
+                        return movie.category == category;
+                    });
 
-    var _loop = function _loop(element) {
-        var category = params[element].category;
-        var moviesInCategories = [];
-        var getMovies = [];
-        if (category) {
-            console.log(category, "categories");
-            moviesInCategories = params.filter(function (movie) {
-                return movie.category == category;
-            });
-
-            getMovies = moviesInCategories.map(function (movie) {
-                var clone = Object.assign({}, movie);
-                delete clone.category;
-                return clone;
-            });
-            mytab.push({ category: category, movies: getMovies });
+                    getMovies = moviesInCategories.map(function (movie) {
+                        var clone = Object.assign({}, movie);
+                        delete clone.category;
+                        return clone;
+                    });
+                    mytab.push({ title: category, movies: getMovies });
+                }
+            })();
         }
-    };
-
-    for (var element in params) {
-        _loop(element);
     }
-    return uniqueAr(mytab, "category").map(function (category, i) {
+    return uniqueAr(mytab, "title").map(function (category, i) {
         category.id = i + 1;return category;
     });
 };
