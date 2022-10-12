@@ -1,25 +1,32 @@
+import NavBar from "./NavBar.js";
+
 var Header = function Header() {
     return React.createElement(
-        "header",
-        { className: "grid-col" },
+        "div",
+        { className: "header" },
         React.createElement(
-            "div",
-            { className: "logo" },
+            "header",
+            { className: "grid-col center" },
             React.createElement(
-                "h1",
-                null,
-                "My",
+                "div",
+                { className: "logo" },
                 React.createElement(
-                    "span",
+                    "h1",
                     null,
-                    "Movies"
+                    "My",
+                    React.createElement(
+                        "span",
+                        null,
+                        "Movies"
+                    )
                 )
-            )
-        ),
-        React.createElement(
-            "form",
-            null,
-            React.createElement("input", { type: "search", name: "search", id: "search" })
+            ),
+            React.createElement(
+                "form",
+                null,
+                React.createElement("input", { type: "search", name: "search", id: "search" })
+            ),
+            React.createElement(NavBar, null)
         )
     );
 };

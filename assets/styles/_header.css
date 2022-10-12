@@ -1,0 +1,21 @@
+.header{
+    background: var(--second-color);
+}
+header{
+    padding: 20px 0px;
+    align-items: center ;
+    justify-content: space-between;
+}
+
+nav{
+    grid-auto-columns: max-content;
+    gap: 10px;
+}
+.nav-item{
+    font-size: 1.3em;
+    border-bottom: 5px solid;
+    padding: 3px 5px;
+    background-color: var(--second-color);
+    box-shadow: 0 0 3px;
+    cursor: pointer;
+}

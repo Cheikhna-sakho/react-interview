@@ -1,12 +1,16 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;   
+    outline: none; 
 }
-/* :root{
-    --likes: 0;
+:root{
+    --primary-color: #151B26;
+    --second-color: #697C8C ;
+    --third-color: #7503A6;
+    --faur-color: #038C3E;
     --dislikes: 0;
-} */
+}
 img{
     width: 100%;
     height: 100%;

@@ -43,7 +43,7 @@ var Movie = function Movie(_ref) {
                 " nom : ",
                 title
             ),
-            React.createElement(
+            category && React.createElement(
                 "h3",
                 null,
                 "Categorie: ",

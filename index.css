@@ -1,15 +1,11 @@
 @import url("./assets/styles/_setting.css");
 @import url("./assets/styles/_global.css");
+@import url("./assets/styles/_body.css");
+@import url("./assets/styles/_header.css");
 @import url("./assets/styles/_movie_card.css");
 @import url("./assets/styles/_notice.css");
 @import url("./assets/styles/_jauge.css");
 /* @import url("./assets/styles"); */
-body{
-    background: rgb(91, 79, 79);
-}
-.app{
-    gap: 30px;
-}
-header{
-    align-items: center ;
-}
+
+
+

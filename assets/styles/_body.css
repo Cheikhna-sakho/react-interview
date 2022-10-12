@@ -1,0 +1,8 @@
+body{
+    background: var(--primary-color);
+
+}
+.app{
+    gap: 30px;
+    grid-template-rows: max-content 1fr;
+}

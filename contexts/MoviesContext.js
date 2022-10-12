@@ -17,23 +17,35 @@ export var MoviesContextProvider = function MoviesContextProvider(_ref) {
         categories = _React$useState4[0],
         setCategories = _React$useState4[1];
 
+    var _React$useState5 = React.useState(movies),
+        _React$useState6 = _slicedToArray(_React$useState5, 2),
+        moviesShow = _React$useState6[0],
+        setMoviesShow = _React$useState6[1];
+
+    /**
+     * Get Movie
+     */
+
+
     React.useEffect(function () {
         movies$.then(function (data) {
             return setMovies(data);
         }).catch(function (error) {
             return console.log(error);
         });
+        // setMoviesShow(movies);
     }, []);
+    /**
+     * Get Movie
+     */
     React.useEffect(function () {
         movies && setCategories(getMoviesByCategories(movies));
     }, [movies]);
-    var data = {
-        contextMovies: [movies, setMovies],
-        contextCategories: [categories, setCategories]
-    };
+
+    // ************************************************
     return React.createElement(
         MoviesContext.Provider,
-        { value: { movies: movies, setMovies: setMovies, categories: categories, setCategories: setCategories } },
+        { value: { movies: movies, setMovies: setMovies, categories: categories, setCategories: setCategories, moviesShow: moviesShow, setMoviesShow: setMoviesShow } },
         children
     );
 };
@@ -51,4 +63,16 @@ export var CategoriesContextData = function CategoriesContextData() {
 
     return { categories: categories, setCategories: setCategories };
 };
+export var MoviesShowContextData = function MoviesShowContextData() {
+    var _React$useContext3 = React.useContext(MoviesContext),
+        moviesShow = _React$useContext3.moviesShow,
+        setMoviesShow = _React$useContext3.setMoviesShow;
+
+    return { moviesShow: moviesShow, setMoviesShow: setMoviesShow };
+};
 export default MoviesContext;
+
+// const data = {
+//     contextMovies: [movies, setMovies],
+//     contextCategories: [categories, setCategories],
+// }

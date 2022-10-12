@@ -19,7 +19,7 @@ const Movie = ({ movie }) => {
             </div>
             <div className="movie-info grid-row" >
                 <h2 className="movie-title"> nom : {title}</h2>
-                <h3>Categorie: {category}</h3>
+                {category && <h3>Categorie: {category}</h3>}
                 <div className="notice">
                     <div className="notice-items grid-col">
                         <NoticeItem iconClass="like" movie={movie} increment={1} />

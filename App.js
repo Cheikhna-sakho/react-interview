@@ -1,6 +1,5 @@
 import Header from './components/header/Header.js';
 import Movies from './components/Movies.js';
-import NavBar from './components/nav/NavBar.js';
 import { MoviesContextProvider } from './contexts/MoviesContext.js';
 
 var App = function App() {
@@ -9,10 +8,13 @@ var App = function App() {
         null,
         React.createElement(
             'div',
-            { className: 'center app grid-row' },
+            { className: 'app grid-row' },
             React.createElement(Header, null),
-            React.createElement(NavBar, null),
-            React.createElement(Movies, null)
+            React.createElement(
+                'main',
+                null,
+                React.createElement(Movies, null)
+            )
         )
     );
 };
