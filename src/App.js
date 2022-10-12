@@ -1,12 +1,12 @@
-import Movie from './components/Movie.js'
+import Movies from './components/Movies.js'
 import { MoviesContextProvider } from './contexts/MoviesContext.js'
 
 const App = () => {
     return (
         <MoviesContextProvider>
-            <div>
+            <div className='center app'>
                 In App
-                <Movie />
+                <Movies />
             </div>
         </MoviesContextProvider>
     )

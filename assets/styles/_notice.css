@@ -1,0 +1,20 @@
+.notice {
+    align-items: center;
+
+}
+
+.notice {
+    display: grid;
+    grid-auto-columns: 100%;
+}
+
+.notice-items {
+    /* display: grid; */
+    /* grid-template-columns: repeat(2,max-content); */
+    justify-content: space-between;
+    gap: 20px;
+}
+.notice-item{
+    gap: 10px;
+    padding: 5px 10px;
+}

@@ -1,12 +1,14 @@
-.movies-content{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+.movies-content {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-auto-rows: 350px;
 }
-.movie{
-    display: grid;
+
+.movie {
     grid-template-rows: 45% auto;
     padding: 5px;
-    width: 200px;
-    height: 250px;
+
     background: red;
 }
+
+

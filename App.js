@@ -1,4 +1,4 @@
-import Movie from './components/Movie.js';
+import Movies from './components/Movies.js';
 import { MoviesContextProvider } from './contexts/MoviesContext.js';
 
 var App = function App() {
@@ -7,9 +7,9 @@ var App = function App() {
         null,
         React.createElement(
             'div',
-            null,
+            { className: 'center app' },
             'In App',
-            React.createElement(Movie, null)
+            React.createElement(Movies, null)
         )
     );
 };

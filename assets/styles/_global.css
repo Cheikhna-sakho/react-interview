@@ -2,10 +2,18 @@
 .grid-col {
     display: grid;
 }
+.grid{
+    display: grid;
+}
 
 .grid-col {
     grid-auto-flow: column;
 }
-.grid-col {
+.grid-row {
     grid-auto-flow: row;
+}
+.center{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
 }

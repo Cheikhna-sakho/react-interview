@@ -1,13 +1,18 @@
 
+import { CategoriesContextData } from "../../contexts/MoviesContext.js";
 import { MovieContextData } from "../contexts/MoviesContext.js";
 import Movie from "./Movie.js";
 
 var Movies = function Movies() {
-    var movies = MovieContextData();
+    var _MovieContextData = MovieContextData(),
+        movies = _MovieContextData.movies;
+
+    var categories = CategoriesContextData();
+    console.log("categories", categories);
     return React.createElement(
         "section",
-        { className: "movies-content" },
-        movies && movies.slice(0, 4).map(function (movie, i) {
+        { className: "movies-content grid" },
+        movies && movies.map(function (movie, i) {
             return React.createElement(Movie, { key: i, movie: movie });
         })
     );
