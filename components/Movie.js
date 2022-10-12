@@ -5,7 +5,8 @@ import Jauge from "./Jauge.js";
 import NoticeItem from "./NoticeItem.js";
 
 var Movie = function Movie(_ref) {
-    var movie = _ref.movie;
+    var movie = _ref.movie,
+        filtre = _ref.filtre;
     var title = movie.title,
         category = movie.category,
         likes = movie.likes,
@@ -18,6 +19,7 @@ var Movie = function Movie(_ref) {
     var movieRef = movies.indexOf(movie);
 
     var onClicked = function onClicked() {
+        console.log(movies[movieRef], "movie del");
         delete movies[movieRef];
         setMovies(function (movieData) {
             return [].concat(_toConsumableArray(movieData.filter(function (movie) {

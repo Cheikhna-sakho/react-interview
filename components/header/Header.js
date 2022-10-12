@@ -1,6 +1,11 @@
+import { MoviesShowContextData } from "../../contexts/MoviesContext.js";
 import NavBar from "./NavBar.js";
+import SearchBar from "./SearchBar.js";
 
 var Header = function Header() {
+    var _MoviesShowContextDat = MoviesShowContextData(),
+        setMoviesShow = _MoviesShowContextDat.setMoviesShow;
+
     return React.createElement(
         "div",
         { className: "header" },
@@ -9,7 +14,9 @@ var Header = function Header() {
             { className: "grid-col center" },
             React.createElement(
                 "div",
-                { className: "logo" },
+                { className: "logo", onClick: function onClick() {
+                        return setMoviesShow(null);
+                    } },
                 React.createElement(
                     "h1",
                     null,
@@ -21,11 +28,7 @@ var Header = function Header() {
                     )
                 )
             ),
-            React.createElement(
-                "form",
-                null,
-                React.createElement("input", { type: "search", name: "search", id: "search" })
-            ),
+            React.createElement(SearchBar, null),
             React.createElement(NavBar, null)
         )
     );

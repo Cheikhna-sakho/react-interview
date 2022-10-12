@@ -6,3 +6,6 @@ body{
     gap: 30px;
     grid-template-rows: max-content 1fr;
 }
+.content{
+    gap: 30px;
+}

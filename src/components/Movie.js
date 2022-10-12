@@ -2,14 +2,16 @@ import { MovieContextData } from "../../contexts/MoviesContext.js";
 import Jauge from "./Jauge.js"
 import NoticeItem from "./NoticeItem.js"
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie,filtre }) => {
     const { title, category, likes, dislikes } = movie;
     const { movies, setMovies } = MovieContextData();
     const movieRef = movies.indexOf(movie);
 
     const onClicked = () => {
+        console.log(movies[movieRef],"movie del");
         delete movies[movieRef];
-        setMovies(movieData => [...movieData.filter(movie => movie && movie)])
+        setMovies(movieData => [...movieData.filter(movie => movie && movie)]);
+
     }
 
     return (

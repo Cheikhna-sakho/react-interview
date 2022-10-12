@@ -9,8 +9,7 @@ var Movies = function Movies() {
         movies = _MovieContextData.movies;
 
     var _MoviesShowContextDat = MoviesShowContextData(),
-        moviesShow = _MoviesShowContextDat.moviesShow,
-        setMoviesShow = _MoviesShowContextDat.setMoviesShow;
+        moviesShow = _MoviesShowContextDat.moviesShow;
 
     var _React$useState = React.useState(0),
         _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -18,17 +17,17 @@ var Movies = function Movies() {
         setPage = _React$useState2[1];
 
     var ratio = 8;
+    var data = moviesShow || movies;
     var lastValue = function lastValue() {
         var endVal = page + ratio;
-        var len = movies.length;
+        var len = data.length;
         return len > endVal ? endVal - len : null;
     };
     var nav = function nav(end) {
-        console.log(end, "valend");
-        return end ? movies.slice(page, end) : movies.slice(page);
+        return end ? data.slice(page, end) : data.slice(page);
     };
     var next = function next() {
-        if (movies.length >= page + ratio) {
+        if (data.length >= page + ratio) {
             setPage(page + ratio);
         }
     };
@@ -37,20 +36,31 @@ var Movies = function Movies() {
             setPage(page - ratio);
         }
     };
-    // const len = movies.length
+
     return React.createElement(
         "section",
-        { className: "center" },
+        { className: "center grid-row content" },
         React.createElement(
             "div",
             { className: "movies-content grid-row" },
-            movies && nav(lastValue()).map(function (movie, i) {
+            data && nav(lastValue()).map(function (movie, i) {
                 return movie && React.createElement(Movie, { key: i, movie: movie });
-            })
+            }),
+            !data && React.createElement(
+                "p",
+                null,
+                "Desol\xE9",
+                React.createElement(
+                    "span",
+                    null,
+                    React.createElement("i", { classN: "bx bx-upside-down" })
+                ),
+                " ! Il n'y a aucun film disponible"
+            )
         ),
         React.createElement(
             "div",
-            { className: "pagination" },
+            { className: "pagination grid-col" },
             React.createElement(
                 "button",
                 { onClick: back },

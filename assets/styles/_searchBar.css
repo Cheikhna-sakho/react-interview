@@ -1,0 +1,11 @@
+.searchBar{
+    align-items: center;
+    border: solid 1px;
+    border-radius: 15px;
+    background: white;
+    padding: 5px 10px;
+}
+.searchBar input{
+    border: none;
+    background: transparent;
+}

@@ -1,0 +1,11 @@
+.pagination {
+    padding: 10px;
+    grid-auto-columns: max-content;
+    justify-content: center;
+    gap: 100px;
+}
+
+.pagination button {
+    width: 10em;
+    padding: 10px;
+}

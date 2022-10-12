@@ -11,6 +11,9 @@ nav{
     grid-auto-columns: max-content;
     gap: 10px;
 }
+.logo{
+    cursor: pointer;
+}
 .nav-item{
     font-size: 1.3em;
     border-bottom: 5px solid;
