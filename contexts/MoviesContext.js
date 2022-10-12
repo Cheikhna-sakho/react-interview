@@ -17,7 +17,7 @@ export var MoviesContextProvider = function MoviesContextProvider(_ref) {
         categories = _React$useState4[0],
         setCategories = _React$useState4[1];
 
-    var _React$useState5 = React.useState(movies),
+    var _React$useState5 = React.useState(null),
         _React$useState6 = _slicedToArray(_React$useState5, 2),
         moviesShow = _React$useState6[0],
         setMoviesShow = _React$useState6[1];

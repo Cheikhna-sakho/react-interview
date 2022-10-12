@@ -1,11 +1,13 @@
 
 import { CategoriesContextData, MoviesShowContextData } from "../../contexts/MoviesContext.js";
+import { RouteContextData } from "../../contexts/RouteContext.js";
 import { MovieContextData } from "../contexts/MoviesContext.js";
 import Movie from "./Movie.js";
 
 const Movies = () => {
     const { movies } = MovieContextData();
     const { moviesShow } = MoviesShowContextData();
+    const {route} = RouteContextData();
     const [page, setPage] = React.useState(0)
     const ratio = 8;
     const data = (moviesShow || movies);
@@ -29,16 +31,20 @@ const Movies = () => {
             setPage(page - ratio)
         }
     }
-
+    //  console.log(route, "route");
     return (
         <section className="center grid-row content">
+            <div className="page">
+                {route && <h2>{route}</h2>}
+                {!route && <h2>Accueil</h2>}
+            </div>
             <div className="movies-content grid-row">
                 {data && nav(lastValue()).map((movie, i) => movie && <Movie key={i} movie={movie} />)}
-                {!data && <p>Desolé<span><i classN='bx bx-upside-down'></i></span> ! Il n'y a aucun film disponible</p>}
             </div>
+            {data && !data.length && <p className="not-found">Desolé<span><i className='bx bx-upside-down'></i></span> ! Il n'y a aucun film disponible</p>}
             <div className="pagination grid-col">
-                <button onClick={back}>arriere</button>
-                <button onClick={next}>avant</button>
+                <button onClick={back} className="grid-col"><span><i className='bx bx-arrow-back' ></i></span>précédent</button>
+                <button onClick={next} className="grid-col">suivant<span><i className='bx bx-arrow-back bx-rotate-180' ></i></span></button>
             </div>
         </section>
     )

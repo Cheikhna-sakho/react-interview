@@ -6,8 +6,8 @@ const MoviesContext = React.createContext(null);
 export const MoviesContextProvider = ({ children }) => {
     const [movies, setMovies] = React.useState(null);
     const [categories, setCategories] = React.useState(null);
-    const [moviesShow, setMoviesShow] = React.useState(movies);
-
+    const [moviesShow, setMoviesShow] = React.useState(null);
+    
     /**
      * Get Movie
      */

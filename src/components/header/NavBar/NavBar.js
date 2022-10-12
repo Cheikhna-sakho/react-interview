@@ -4,7 +4,7 @@ import Popularity from "./Popularity.js";
 
 const NavBar = () => {
 
-
+    console.log("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
 
     return (
         <nav className="grid-col">

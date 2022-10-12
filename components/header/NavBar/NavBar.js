@@ -4,6 +4,8 @@ import Popularity from "./Popularity.js";
 
 var NavBar = function NavBar() {
 
+    console.log("llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
+
     return React.createElement(
         "nav",
         { className: "grid-col" },
