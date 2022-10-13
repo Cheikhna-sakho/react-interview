@@ -52,7 +52,7 @@ var Pagination = function Pagination(data) {
     React.useEffect(function () {
         data && setIndex(Math.ceil(data.length / ratio));
         data && setNav(end ? data.slice(page, end) : data.slice(page));
-    }, [data, page, end]);
+    }, [data, page, end, ratio]);
 
     var next = function next() {
         if (data.length >= page + ratio) {

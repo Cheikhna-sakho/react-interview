@@ -26,7 +26,7 @@ const Pagination = (data, { start = 0, ratio = 4 } = {}) => {
         data && setNav(end ? (
             data.slice(page, end)
         ) : data.slice(page));
-    }, [data, page, end])
+    }, [data, page, end,ratio])
 
     const next = () => {
         if (data.length >= page + ratio) {
