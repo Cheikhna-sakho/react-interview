@@ -20,7 +20,9 @@ var Movies = function Movies() {
     var _Pagination = Pagination(data),
         next = _Pagination.next,
         back = _Pagination.back,
-        nav = _Pagination.nav;
+        nav = _Pagination.nav,
+        index = _Pagination.index,
+        pageIndex = _Pagination.pageIndex;
     // React.useEffect(() => {
     //     const ms = (moviesShow || movies);
     //     setData(ms);
@@ -73,6 +75,11 @@ var Movies = function Movies() {
                     React.createElement("i", { className: "bx bx-arrow-back" })
                 ),
                 "pr\xE9c\xE9dent"
+            ),
+            React.createElement(
+                "div",
+                { className: "index" },
+                pageIndex + "/" + index
             ),
             React.createElement(
                 "button",

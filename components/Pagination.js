@@ -17,25 +17,38 @@ var Pagination = function Pagination(data) {
         nav = _React$useState4[0],
         setNav = _React$useState4[1];
 
+    var _React$useState5 = React.useState(1),
+        _React$useState6 = _slicedToArray(_React$useState5, 2),
+        pageIndex = _React$useState6[0],
+        SetPageIndex = _React$useState6[1];
+
+    var _React$useState7 = React.useState(1),
+        _React$useState8 = _slicedToArray(_React$useState7, 2),
+        index = _React$useState8[0],
+        setIndex = _React$useState8[1];
+
     var lastValue = function lastValue() {
         var endVal = page + ratio;
         var len = data && data.length;
         return len > endVal ? endVal - len : null;
     };
     React.useEffect(function () {
+        data && setIndex(Math.ceil(data.length / ratio));
         data && setNav(lastValue() ? data.slice(page, lastValue()) : data.slice(page));
     }, [data, page]);
 
     var next = function next() {
         if (data.length >= page + ratio) {
+            SetPageIndex(pageIndex + 1);
             setPage(page + ratio);
         }
     };
     var back = function back() {
         if (page - ratio >= 0) {
+            SetPageIndex(pageIndex - 1);
             setPage(page - ratio);
         }
     };
-    return { next: next, back: back, nav: nav };
+    return { next: next, back: back, nav: nav, index: index, pageIndex: pageIndex };
 };
 export default Pagination;

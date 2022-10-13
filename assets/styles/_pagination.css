@@ -17,3 +17,7 @@
     background: var(--primary-color);
     color: white;
 }
+.index{
+    color: white;
+    font-size: 1.3em;
+}
