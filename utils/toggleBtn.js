@@ -7,7 +7,7 @@ var toggleBtn = function toggleBtn(ref) {
         // movie[count]++;
     } else {
         // movie[count]--;
-        ref.current.className = btnClass.split(" ").filter(function (selector) {
+        ref.current.className = refClass.split(" ").filter(function (selector) {
             return selector != isActive;
         }).join(" ");
         return false;

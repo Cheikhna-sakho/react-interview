@@ -5,10 +5,10 @@ import { RouteContextProvider } from './contexts/RouteContext.js';
 
 var App = function App() {
     return React.createElement(
-        RouteContextProvider,
+        MoviesContextProvider,
         null,
         React.createElement(
-            MoviesContextProvider,
+            RouteContextProvider,
             null,
             React.createElement(
                 'div',

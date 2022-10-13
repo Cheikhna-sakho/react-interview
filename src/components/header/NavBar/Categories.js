@@ -1,4 +1,4 @@
-import { RouteContextData } from "../../../../contexts/RouteContext.js";
+import { RouteContextData } from "../../../contexts/RouteContext.js";
 import { CategoriesContextData, MoviesShowContextData } from "../../../contexts/MoviesContext.js";
 
 const Categories = () => {
@@ -8,8 +8,8 @@ const Categories = () => {
     const onChanged = (e) => {
         const { value } = e.target;
         const categoryData = categories.find(category => category.id == value);
-        setMoviesShow(categoryData.movies);
-        setRoute("Categorie: "+categoryData.title)
+        categoryData && setMoviesShow(categoryData.movies);
+        setRoute("Categorie: ");
     }
     return (
         <select className="nav-item" onChange={onChanged}>

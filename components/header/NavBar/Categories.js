@@ -1,4 +1,4 @@
-import { RouteContextData } from "../../../../contexts/RouteContext.js";
+import { RouteContextData } from "../../../contexts/RouteContext.js";
 import { CategoriesContextData, MoviesShowContextData } from "../../../contexts/MoviesContext.js";
 
 var Categories = function Categories() {
@@ -17,8 +17,8 @@ var Categories = function Categories() {
         var categoryData = categories.find(function (category) {
             return category.id == value;
         });
-        setMoviesShow(categoryData.movies);
-        setRoute("Categorie: " + categoryData.title);
+        categoryData && setMoviesShow(categoryData.movies);
+        setRoute("Categorie: ");
     };
     return React.createElement(
         "select",
