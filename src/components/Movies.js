@@ -3,35 +3,19 @@ import { CategoriesContextData, MoviesShowContextData } from "../../contexts/Mov
 import { RouteContextData } from "../../contexts/RouteContext.js";
 import { MovieContextData } from "../contexts/MoviesContext.js";
 import Movie from "./Movie.js";
+import Pagination from "./Pagination.js";
 
 const Movies = () => {
     const { movies } = MovieContextData();
     const { moviesShow } = MoviesShowContextData();
-    const {route} = RouteContextData();
-    const [page, setPage] = React.useState(0)
-    const ratio = 8;
+    const { route } = RouteContextData();
     const data = (moviesShow || movies);
-    const lastValue = () => {
-        const endVal = (page + ratio);
-        const len = data.length;
-        return len > endVal ? endVal - len : null;
-    }
-    const nav = (end) => {
-        return end ? (
-            data.slice(page, end)
-        ) : data.slice(page);
-    }
-    const next = () => {
-        if (data.length >= page + ratio) {
-            setPage(page + ratio)
-        }
-    }
-    const back = () => {
-        if (page - ratio >= 0) {
-            setPage(page - ratio)
-        }
-    }
-    //  console.log(route, "route");
+    const { next, back, nav } = Pagination(data);
+    // React.useEffect(() => {
+    //     const ms = (moviesShow || movies);
+    //     setData(ms);
+    // }, [movies, moviesShow]);
+
     return (
         <section className="center grid-row content">
             <div className="page">
@@ -39,7 +23,7 @@ const Movies = () => {
                 {!route && <h2>Accueil</h2>}
             </div>
             <div className="movies-content grid-row">
-                {data && nav(lastValue()).map((movie, i) => movie && <Movie key={i} movie={movie} />)}
+                {data && nav.map((movie, i) => movie && <Movie key={i} movie={movie} />)}
             </div>
             {data && !data.length && <p className="not-found">Desolé<span><i className='bx bx-upside-down'></i></span> ! Il n'y a aucun film disponible</p>}
             <div className="pagination grid-col">
@@ -49,5 +33,6 @@ const Movies = () => {
         </section>
     )
 }
+
 
 export default Movies;

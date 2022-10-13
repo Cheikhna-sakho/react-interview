@@ -1,5 +1,6 @@
 import { MoviesShowContextData } from "../../../contexts/MoviesContext.js";
 import { MovieContextData } from "../../contexts/MoviesContext.js";
+import { RouteContextData } from "../../contexts/RouteContext.js";
 
 var SearchBar = function SearchBar() {
     var _MovieContextData = MovieContextData(),
@@ -8,15 +9,20 @@ var SearchBar = function SearchBar() {
     var _MoviesShowContextDat = MoviesShowContextData(),
         setMoviesShow = _MoviesShowContextDat.setMoviesShow;
 
+    var _RouteContextData = RouteContextData(),
+        setRoute = _RouteContextData.setRoute;
+
     var onSearch = function onSearch(e) {
         var value = e.target.value;
 
         var moviesData = movies.filter(function (movie) {
             return movie.title.toLowerCase().includes(value.toLowerCase());
         });
-        console.log(moviesData, "data filter");
+
         setMoviesShow(moviesData);
+        setRoute("Rechecher/" + value);
         if (!value) {
+            setRoute(null);
             setMoviesShow(null);
         }
     };

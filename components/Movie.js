@@ -20,8 +20,7 @@ var Movie = function Movie(_ref) {
 
     var movieRef = movies.indexOf(movie);
 
-    var onClicked = function onClicked() {
-        console.log(movies[movieRef], "movie del");
+    var onDetele = function onDetele() {
         delete movies[movieRef];
         setMovies(function (movieData) {
             return [].concat(_toConsumableArray(movieData.filter(function (movie) {
@@ -62,7 +61,7 @@ var Movie = function Movie(_ref) {
                     React.createElement(NoticeItem, { iconClass: "like", movie: movie, increment: 1 }),
                     !moviesShow && React.createElement(
                         "button",
-                        { className: "movie-rm", onClick: onClicked },
+                        { className: "movie-rm", onClick: onDetele },
                         "supprimer"
                     ),
                     React.createElement(NoticeItem, { iconClass: "dislike", movie: movie, increment: -1 })

@@ -8,9 +8,6 @@ export var RouteContextProvider = function RouteContextProvider(_ref) {
         _React$useState2 = _slicedToArray(_React$useState, 2),
         route = _React$useState2[0],
         setRoute = _React$useState2[1];
-    // React.useEffect(()=>{
-    //     // console.log("route a jour");
-    // },[route])
 
     return React.createElement(
         RouteContext.Provider,

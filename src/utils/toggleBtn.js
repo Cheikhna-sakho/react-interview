@@ -4,11 +4,8 @@ const toggleBtn = (ref) => {
     if (!refClass.includes(isActive)) {
         ref.current.className += " active"
         return true;
-        // movie[count]++;
-    } else {
-        // movie[count]--;
-        ref.current.className = btnClass.split(" ").filter(selector => selector != isActive).join(" ");
-        return false;
     }
-} 
+    ref.current.className = refClass.split(" ").filter(selector => selector != isActive).join(" ");
+    return false;
+}
 export default toggleBtn;

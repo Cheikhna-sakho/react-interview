@@ -7,25 +7,29 @@ export const MoviesContextProvider = ({ children }) => {
     const [movies, setMovies] = React.useState(null);
     const [categories, setCategories] = React.useState(null);
     const [moviesShow, setMoviesShow] = React.useState(null);
-    
+
     /**
      * Get Movie
      */
     React.useEffect(() => {
         movies$.then(data => setMovies(data))
             .catch(error => console.log(error));
-        // setMoviesShow(movies);
     }, [])
     /**
-     * Get Movie
+     * Get Categories
      */
     React.useEffect(() => {
         movies && setCategories(getMoviesByCategories(movies));
     }, [movies])
 
     // ************************************************
+    const data = {
+        movies, setMovies,
+        categories, setCategories,
+        moviesShow, setMoviesShow
+    }
     return (
-        <MoviesContext.Provider value={{ movies, setMovies, categories, setCategories, moviesShow, setMoviesShow }}>
+        <MoviesContext.Provider value={data}>
             {children}
         </MoviesContext.Provider>
     )

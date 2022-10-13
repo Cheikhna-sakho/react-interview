@@ -1,23 +1,28 @@
 import { MoviesShowContextData } from "../../../contexts/MoviesContext.js";
 import { MovieContextData } from "../../contexts/MoviesContext.js"
+import { RouteContextData } from "../../contexts/RouteContext.js";
+
 
 const SearchBar = () => {
-    const {movies} = MovieContextData();
-    const {setMoviesShow} = MoviesShowContextData();
+    const { movies } = MovieContextData();
+    const { setMoviesShow } = MoviesShowContextData();
+    const { setRoute } = RouteContextData();
+    
     const onSearch = (e) => {
-        const {value} = e.target;
-        const moviesData = movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase())
-            );
-        console.log(moviesData,"data filter");
+        const { value } = e.target;
+        const moviesData = movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase()));
+
         setMoviesShow(moviesData)
+        setRoute("Rechecher/" + value);
         if (!value) {
-            setMoviesShow(null)
+            setRoute(null);
+            setMoviesShow(null);
         }
     }
     return (
         <form>
             <div className="searchBar grid-col">
-                <input type="search" id="search" onChange={onSearch}/>
+                <input type="search" id="search" onChange={onSearch} />
                 <span>
                     <i className='bx bx-search'></i>
                 </span>

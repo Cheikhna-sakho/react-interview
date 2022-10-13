@@ -1,10 +1,14 @@
 import { MoviesShowContextData } from "../../contexts/MoviesContext.js";
-import NavBar from "./NavBar.js";
+import { RouteContextData } from "../../contexts/RouteContext.js";
+import NavBar from "./NavBar/NavBar.js";
 import SearchBar from "./SearchBar.js";
 
 var Header = function Header() {
     var _MoviesShowContextDat = MoviesShowContextData(),
         setMoviesShow = _MoviesShowContextDat.setMoviesShow;
+
+    var _RouteContextData = RouteContextData(),
+        setRoute = _RouteContextData.setRoute;
 
     return React.createElement(
         "div",
@@ -15,7 +19,7 @@ var Header = function Header() {
             React.createElement(
                 "div",
                 { className: "logo", onClick: function onClick() {
-                        return setMoviesShow(null);
+                        setMoviesShow(null);setRoute(null);
                     } },
                 React.createElement(
                     "h1",

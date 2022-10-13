@@ -18,7 +18,7 @@ var Categories = function Categories() {
             return category.id == value;
         });
         categoryData && setMoviesShow(categoryData.movies);
-        setRoute("Categorie: ");
+        setRoute("Categorie/" + categoryData.title);
     };
     return React.createElement(
         "select",

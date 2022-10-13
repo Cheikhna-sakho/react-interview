@@ -1,10 +1,7 @@
 const RouteContext = React.createContext(null);
 export const RouteContextProvider = ({ children }) => {
     const [route,setRoute] = React.useState(null);
-    // React.useEffect(()=>{
-    //     // console.log("route a jour");
-    // },[route])
-    
+
     return (
         <RouteContext.Provider value={{route,setRoute}}>
             {children}

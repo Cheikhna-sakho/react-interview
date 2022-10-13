@@ -8,11 +8,9 @@ const Movie = ({ movie }) => {
     const { moviesShow } = MoviesShowContextData();
     const movieRef = movies.indexOf(movie);
 
-    const onClicked = () => {
-        console.log(movies[movieRef], "movie del");
+    const onDetele = () => {
         delete movies[movieRef];
         setMovies(movieData => [...movieData.filter(movie => movie && movie)]);
-
     }
 
     return (
@@ -26,7 +24,7 @@ const Movie = ({ movie }) => {
                 <div className="notice">
                     <div className="notice-items grid-col">
                         <NoticeItem iconClass="like" movie={movie} increment={1} />
-                        {!moviesShow && <button className="movie-rm" onClick={onClicked}>supprimer</button>}
+                        {!moviesShow && <button className="movie-rm" onClick={onDetele}>supprimer</button>}
                         <NoticeItem iconClass="dislike" movie={movie} increment={-1} />
                     </div>
                     <Jauge likes={likes} dislikes={dislikes} />

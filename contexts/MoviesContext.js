@@ -33,19 +33,23 @@ export var MoviesContextProvider = function MoviesContextProvider(_ref) {
         }).catch(function (error) {
             return console.log(error);
         });
-        // setMoviesShow(movies);
     }, []);
     /**
-     * Get Movie
+     * Get Categories
      */
     React.useEffect(function () {
         movies && setCategories(getMoviesByCategories(movies));
     }, [movies]);
 
     // ************************************************
+    var data = {
+        movies: movies, setMovies: setMovies,
+        categories: categories, setCategories: setCategories,
+        moviesShow: moviesShow, setMoviesShow: setMoviesShow
+    };
     return React.createElement(
         MoviesContext.Provider,
-        { value: { movies: movies, setMovies: setMovies, categories: categories, setCategories: setCategories, moviesShow: moviesShow, setMoviesShow: setMoviesShow } },
+        { value: data },
         children
     );
 };
