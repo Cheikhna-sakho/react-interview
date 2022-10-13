@@ -11,7 +11,7 @@ const Pagination = (data, { start = 0, ratio = 4 } = {}) => {
             return len > endVal ? endVal - len : null;
         }
         setEnd(lastValue());
-    }, [data, ratio])
+    }, [data, ratio,page])
     React.useEffect(() => {
         if (index > 0) {
             setPage(0);

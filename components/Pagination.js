@@ -39,7 +39,7 @@ var Pagination = function Pagination(data) {
             return len > endVal ? endVal - len : null;
         };
         setEnd(lastValue());
-    }, [data, ratio]);
+    }, [data, ratio, page]);
     React.useEffect(function () {
         if (index > 0) {
             setPage(0);
