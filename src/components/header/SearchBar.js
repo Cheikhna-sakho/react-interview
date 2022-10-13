@@ -13,14 +13,14 @@ const SearchBar = () => {
         const moviesData = movies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase()));
 
         setMoviesShow(moviesData)
-        setRoute("Rechecher/" + value);
+        setRoute("Recheche/" + value);
         if (!value) {
             setRoute(null);
             setMoviesShow(null);
         }
     }
     return (
-        <form>
+        <form onSubmit={e=> e.preventDefault()}>
             <div className="searchBar grid-col">
                 <input type="search" id="search" onChange={onSearch} />
                 <span>

@@ -1,7 +1,7 @@
 import Header from './components/header/Header.js'
 import Movies from './components/Movies.js'
 import { MoviesContextProvider } from './contexts/MoviesContext.js'
-import { RouteContextData, RouteContextProvider } from './contexts/RouteContext.js'
+import { RouteContextProvider } from './contexts/RouteContext.js'
 
 const App = () => {
     

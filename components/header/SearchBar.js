@@ -20,7 +20,7 @@ var SearchBar = function SearchBar() {
         });
 
         setMoviesShow(moviesData);
-        setRoute("Rechecher/" + value);
+        setRoute("Recheche/" + value);
         if (!value) {
             setRoute(null);
             setMoviesShow(null);
@@ -28,7 +28,9 @@ var SearchBar = function SearchBar() {
     };
     return React.createElement(
         "form",
-        null,
+        { onSubmit: function onSubmit(e) {
+                return e.preventDefault();
+            } },
         React.createElement(
             "div",
             { className: "searchBar grid-col" },
