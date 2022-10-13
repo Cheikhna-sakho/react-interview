@@ -27,11 +27,19 @@ var Pagination = function Pagination(data) {
         index = _React$useState8[0],
         setIndex = _React$useState8[1];
 
-    var lastValue = function lastValue() {
-        var endVal = page + ratio;
-        var len = data && data.length;
-        return len > endVal ? endVal - len : null;
-    };
+    var _React$useState9 = React.useState(null),
+        _React$useState10 = _slicedToArray(_React$useState9, 2),
+        end = _React$useState10[0],
+        setEnd = _React$useState10[1];
+
+    React.useEffect(function () {
+        var lastValue = function lastValue() {
+            var endVal = page + ratio;
+            var len = data && data.length;
+            return len > endVal ? endVal - len : null;
+        };
+        setEnd(lastValue());
+    }, [data, ratio]);
     React.useEffect(function () {
         if (index > 0) {
             setPage(0);
@@ -43,8 +51,8 @@ var Pagination = function Pagination(data) {
     }, [data, index]);
     React.useEffect(function () {
         data && setIndex(Math.ceil(data.length / ratio));
-        data && setNav(lastValue() ? data.slice(page, lastValue()) : data.slice(page));
-    }, [data, page]);
+        data && setNav(end ? data.slice(page, end) : data.slice(page));
+    }, [data, page, end]);
 
     var next = function next() {
         if (data.length >= page + ratio) {

@@ -5,7 +5,7 @@
     gap: 100px;
 }
 
-.pagination button {
+.pagination button,.ratio {
     /* display: grid; */
     align-items: center;
     width: 10em;
@@ -21,3 +21,7 @@
     color: white;
     font-size: 1.3em;
 }
+
+/* .ratio{
+    padding: 10px;
+} */

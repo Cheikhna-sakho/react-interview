@@ -3,26 +3,30 @@ const Pagination = (data, { start = 0, ratio = 4 } = {}) => {
     const [nav, setNav] = React.useState([]);
     const [pageIndex, SetPageIndex] = React.useState(1);
     const [index, setIndex] = React.useState(page);
-    const lastValue = () => {
-        const endVal = (page + ratio);
-        const len = data && data.length;
-        return len > endVal ? endVal - len : null;
-    }
+    const [end, setEnd] = React.useState(null);
+    React.useEffect(() => {
+        const lastValue = () => {
+            const endVal = (page + ratio);
+            const len = data && data.length;
+            return len > endVal ? endVal - len : null;
+        }
+        setEnd(lastValue());
+    }, [data, ratio])
     React.useEffect(() => {
         if (index > 0) {
             setPage(0);
-            SetPageIndex(index/index);
-        }else{
+            SetPageIndex(index / index);
+        } else {
             SetPageIndex(0);
         }
         console.log();
-    },[data,index])
+    }, [data, index])
     React.useEffect(() => {
         data && setIndex(Math.ceil(data.length / ratio))
-        data && setNav(lastValue() ? (
-            data.slice(page, lastValue())
+        data && setNav(end ? (
+            data.slice(page, end)
         ) : data.slice(page));
-    }, [data, page])
+    }, [data, page, end])
 
     const next = () => {
         if (data.length >= page + ratio) {

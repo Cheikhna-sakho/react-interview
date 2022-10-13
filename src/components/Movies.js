@@ -10,7 +10,8 @@ const Movies = () => {
     const { moviesShow } = MoviesShowContextData();
     const { route } = RouteContextData();
     const data = (moviesShow || movies);
-    const { next, back, nav,index,pageIndex } = Pagination(data);
+    const [ratio, setRatio] = React.useState(4);
+    const { next, back, nav, index, pageIndex } = Pagination(data, { ratio: ratio });
     // React.useEffect(() => {
     //     const ms = (moviesShow || movies);
     //     setData(ms);
@@ -21,6 +22,12 @@ const Movies = () => {
             <div className="page">
                 {route && <h2>{route}</h2>}
                 {!route && <h2>Accueil</h2>}
+            </div>
+            <div >
+                <select className="ratio"  onChange={e => { setRatio(e.target.value); console.log("yes", e.target.value); }}>
+                    {[4, 8, 12].map(item => <option key={item} value={item}>Afficher par {item}</option>)}
+
+                </select>
             </div>
             <div className="movies-content grid-row">
                 {data && nav.map((movie, i) => movie && <Movie key={i} movie={movie} />)}

@@ -34,7 +34,7 @@ var SearchBar = function SearchBar() {
         React.createElement(
             "div",
             { className: "searchBar grid-col" },
-            React.createElement("input", { type: "search", id: "search", onChange: onSearch }),
+            React.createElement("input", { type: "search", id: "search", onChange: onSearch, placeholder: "recherche par titre" }),
             React.createElement(
                 "span",
                 null,

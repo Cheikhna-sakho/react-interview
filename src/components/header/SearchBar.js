@@ -22,7 +22,7 @@ const SearchBar = () => {
     return (
         <form onSubmit={e=> e.preventDefault()}>
             <div className="searchBar grid-col">
-                <input type="search" id="search" onChange={onSearch} />
+                <input type="search" id="search" onChange={onSearch} placeholder="recherche par titre" />
                 <span>
                     <i className='bx bx-search'></i>
                 </span>

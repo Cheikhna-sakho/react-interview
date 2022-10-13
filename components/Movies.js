@@ -1,3 +1,4 @@
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 import { CategoriesContextData, MoviesShowContextData } from "../../contexts/MoviesContext.js";
 import { RouteContextData } from "../../contexts/RouteContext.js";
@@ -17,7 +18,12 @@ var Movies = function Movies() {
 
     var data = moviesShow || movies;
 
-    var _Pagination = Pagination(data),
+    var _React$useState = React.useState(4),
+        _React$useState2 = _slicedToArray(_React$useState, 2),
+        ratio = _React$useState2[0],
+        setRatio = _React$useState2[1];
+
+    var _Pagination = Pagination(data, { ratio: ratio }),
         next = _Pagination.next,
         back = _Pagination.back,
         nav = _Pagination.nav,
@@ -43,6 +49,24 @@ var Movies = function Movies() {
                 "h2",
                 null,
                 "Accueil"
+            )
+        ),
+        React.createElement(
+            "div",
+            null,
+            React.createElement(
+                "select",
+                { className: "ratio", onChange: function onChange(e) {
+                        setRatio(e.target.value);console.log("yes", e.target.value);
+                    } },
+                [4, 8, 12].map(function (item) {
+                    return React.createElement(
+                        "option",
+                        { key: item, value: item },
+                        "Afficher par ",
+                        item
+                    );
+                })
             )
         ),
         React.createElement(
